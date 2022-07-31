@@ -1,0 +1,17 @@
+spec_version: 2-preview
+description: S3 bucket
+
+grains:
+
+  s3Bucket:
+    kind: terraform
+    spec: 
+      source:
+        path: github.com/QualiSystemsLab/terraform-modules.git//s3
+      host:
+        cloud-account: aws
+        compute-service: kubernetes-testing
+      inputs:
+        - region: eu-west-1
+        - acl: private
+        - name: 's3-{{ sandboxid }}'
