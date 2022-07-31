@@ -1,8 +1,14 @@
 spec_version: 2-preview
 description: S3 bucket
 
-grains:
+inputs:
+  acl:
+    type: string
+    display-style: normal
+    default: "private"
+    description: "aws resource acl"
 
+grains:
   s3Bucket:
     kind: terraform
     spec: 
@@ -13,5 +19,5 @@ grains:
         compute-service: kubernetes-testing
       inputs:
         - region: eu-west-1
-        - acl: public-read
+        - acl: {{ .inputs.acl }}
         - name: 's3-{{ sandboxid | downcase }}'
