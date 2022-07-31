@@ -14,4 +14,4 @@ grains:
       inputs:
         - region: eu-west-1
         - acl: private
-        - name: 's3-{{ sandboxid }}'
+        - name: 's3-{{ sandboxid | downcase }}'
