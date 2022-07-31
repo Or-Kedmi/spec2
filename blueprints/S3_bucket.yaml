@@ -19,5 +19,5 @@ grains:
         compute-service: kubernetes-testing
       inputs:
         - region: eu-west-1
-        - acl: {{ .inputs.acl }}
+        - acl: '{{ .inputs.acl }}'
         - name: 's3-{{ sandboxid | downcase }}'
